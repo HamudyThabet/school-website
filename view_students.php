@@ -28,7 +28,7 @@ $result = $conn->query($sql);
             <td><?= $row['grade'] ?? 'N/A' ?></td>
             <td>
                 <a href="edit_student.php?id=<?= $row['id'] ?>">Edit</a> | 
-                <a href="delete_student.php?id=<?= $row['id'] ?>" onclick="return confirm('Delete this student?');">Delete</a>
+                <a href="delete_student.php?id=<?= $row['id'] ?>">Delete</a>
             </td>
         </tr>
         <?php endwhile; ?>
