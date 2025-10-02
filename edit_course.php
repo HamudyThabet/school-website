@@ -1,15 +1,34 @@
 <?php
-require_once "core/config.php";
+require_once "db.php";
 session_start();
 
-$id = $_GET['id'] ?? null;
-if (!$id) { die("No course ID provided."); }
+if (!isset($_GET['id'])) {
+    echo "Invalid request.";
+    exit;
+}
 
+$id = intval($_GET['id']);
+
+// Fetch course details
+$sql = "SELECT * FROM courses WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 0) {
+    echo "Course not found.";
+    exit;
+}
+
+$course = $result->fetch_assoc();
+
+// Handle update
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $course_name = $_POST['course_name'];
     $description = $_POST['description'];
 
-    $sql = "UPDATE courses SET course_name=?, description=? WHERE id=?";
+    $sql = "UPDATE courses SET course_name = ?, description = ? WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssi", $course_name, $description, $id);
 
@@ -19,16 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Error updating course.";
     }
-} else {
-    $stmt = $conn->prepare("SELECT * FROM courses WHERE id=?");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $course = $stmt->get_result()->fetch_assoc();
 }
 ?>
 <!DOCTYPE html>
 <html>
-<head><title>Edit Course</title></head>
+<head>
+    <title>Edit Course</title>
+</head>
 <body>
     <h2>Edit Course</h2>
     <form method="POST">
