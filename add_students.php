@@ -1,5 +1,5 @@
 <?php
-require_once "core/config.php";
+require_once "db.php";
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $age = $_POST['age'];
     $grade = $_POST['grade'];
 
-    $sql = "INSERT INTO students (name, age, grade) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO students (student_name, student_age, student_grade) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sis", $name, $age, $grade);
 
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: view_students.php");
         exit;
     } else {
-        echo "Error adding student.";
+        echo "Error adding student: " . $stmt->error;
     }
 }
 ?>
