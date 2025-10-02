@@ -13,7 +13,7 @@ $result = $conn->query($sql);
 <head><title>View Students</title></head>
 <body>
     <h2>Student List</h2>
-    <a href="add_student.php">Add Student</a>
+    <a href="add_students.php">Add Student</a>
     <table border="1" cellpadding="10">
         <tr>
             <th>Student ID</th><th>Name</th><th>Age</th><th>Course</th><th>Year Level</th><th>Grade</th><th>Actions</th>
