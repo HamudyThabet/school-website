@@ -60,5 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <button type="submit">Update</button>
     </form>
+    <a href="../Admin System/admin_dashboard.php">Back to Dashboard</a>
 </body>
 </html>
