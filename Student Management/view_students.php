@@ -29,7 +29,6 @@ $result = $conn->query($sql);
             <td><?= $row['age'] ?? 'N/A' ?></td>
             <td><?= htmlspecialchars($row['course_name']) ?? 'No Course' ?></td>
             <td><?= $row['year_level'] ?? 'N/A' ?></td>
-            <td><?= $row['grade'] ?? 'N/A' ?></td>
             <td>
                 <a href="edit_student.php?id=<?= $row['id'] ?>">Edit</a> | 
                 <a href="delete_student.php?id=<?= $row['id'] ?>">Delete</a>
