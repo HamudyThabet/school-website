@@ -29,6 +29,7 @@ $result = $conn->query($sql);
     <table border="1" cellpadding="10">
         <tr>
             <th>ID</th>
+            <th>Photo</th>
             <th>Name</th>
             <th>Specialization</th>
             <th>Contact</th>
@@ -37,6 +38,13 @@ $result = $conn->query($sql);
         <?php while ($row = $result->fetch_assoc()): ?>
         <tr>
             <td><?= htmlspecialchars($row['id']) ?></td>
+            <td>
+                <?php if ($row['photo_path'] && file_exists($row['photo_path'])): ?>
+                    <img src="<?= htmlspecialchars($row['photo_path']) ?>" alt="Faculty Photo" width="100" height="100" style="object-fit: cover;" />
+                <?php else: ?>
+                    <span>No Image</span>
+                <?php endif; ?>
+            </td>
             <td><?= htmlspecialchars($row['name']) ?></td>
             <td><?= htmlspecialchars($row['specialization'] ?? 'N/A') ?></td>
             <td><?= htmlspecialchars($row['contact'] ?? 'N/A') ?></td>
