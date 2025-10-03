@@ -1,4 +1,4 @@
-<?
+<?php
 //db require here
 
 
@@ -6,7 +6,7 @@
 include "Header.php";
 ?>
 <h2>Student Registration</h2>
-<?php if ($msg): ?><p style="color:green"><?= $msg ?></p><?php endif; ?>
+<!--<?php //if ($msg): ?><p style="color:green"><?= //$msg ?></p><?php //endif; ?> -->
 <form method="post">
   <label>Student ID</label><input name="student_id" required>
   <label>First Name</label><input name="first_name" required>
