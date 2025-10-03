@@ -71,7 +71,7 @@ $courses_result = $conn->query($courses_sql);
                 <th>Value</th>
             </tr>
             <tr>
-                <td>Student ID (e.g., 2025-001):</td>
+                <td>Student ID:</td>
                 <td><input type="text" name="student_id" value="<?= htmlspecialchars($student['student_id']) ?>" required /></td>
             </tr>
             <tr>
@@ -86,7 +86,6 @@ $courses_result = $conn->query($courses_sql);
                 <td>Course:</td>
                 <td>
                     <select name="course_id" required>
-                        <option value="">Select Course</option>
                         <?php while ($course = $courses_result->fetch_assoc()): ?>
                             <option value="<?= $course['id'] ?>" <?= ($student['course_id'] == $course['id']) ? 'selected' : '' ?>>
                                 <?= htmlspecialchars($course['course_name']) ?>
@@ -102,7 +101,7 @@ $courses_result = $conn->query($courses_sql);
             <tr>
                 <td colspan="2">
                     <input type="submit" value="Update Student" />
-                    <a href="view_students.php">Cancel</a>
+                    <a href="view_students.php">Back</a>
                 </td>
             </tr>
         </table>
