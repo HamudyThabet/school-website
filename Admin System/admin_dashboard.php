@@ -29,11 +29,10 @@ if ($result && $result->num_rows === 1) {
     
     <h3>Quick Links</h3>
     <ul>
-        <li><a href="view_students.php">View Students</a></li>
-        <li><a href="add_student.php">Add Student</a> <!-- Assuming you have this file --></li>
+        <li><a href="../Course Management/view_courses.php">View Courses</a></li>
+        <li><a href="../Faculty Management/view_faculty.php">View Faculty</a></li>
+        <li><a href="../Student Management/view_students.php">View Students</a></li>
         <li><a href="logout.php">Logout</a></li>
     </ul>
-    
-    <p><a href="login.php">Login Page</a> (for testing)</p>
 </body>
 </html>

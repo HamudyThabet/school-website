@@ -17,7 +17,7 @@ $result = $conn->query($sql);
 <head><title>View Students</title></head>
 <body>
     <h2>Student List</h2>
-    <a href="add_student.php">Add Student</a>
+    <p><a href="add_student.php">Add Student</a> | <p><a href="../Admin System/admin_dashboard.php">Back to Dashboard</a></p>
     <table border="1" cellpadding="10">
         <tr>
             <th>Student ID</th><th>Name</th><th>Age</th><th>Course</th><th>Year Level</th><th>Grade</th><th>Actions</th>

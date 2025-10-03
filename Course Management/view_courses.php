@@ -17,7 +17,7 @@ $result = $conn->query($sql);
 </head>
 <body>
     <h2>Courses</h2>
-    <a href="add_course.php">Add New Course</a>
+    <p><a href="add_course.php">Add New Course</a> | <p><a href="../Admin System/admin_dashboard.php">Back to Dashboard</a></p></p>
     <br><br>
 
     <table border="1" cellpadding="5" cellspacing="0">
@@ -38,7 +38,6 @@ $result = $conn->query($sql);
                         <a href="delete_course.php?id=<?= $row['id'] ?>" onclick="return confirm('Delete this course?');">Delete</a>
                     </td>
                 </tr>
-                <a href="../Admin System/admin_dashboard.php">Back</a>
             <?php endwhile; ?>
         <?php else: ?>
             <tr><td colspan="4">No courses found.</td></tr>
