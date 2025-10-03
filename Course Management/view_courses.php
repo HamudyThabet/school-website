@@ -1,6 +1,10 @@
 <?php
-require_once "db.php";
 session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../Admin System/login.php');
+    exit();
+}
+require_once "db.php";
 
 // Fetch all courses
 $sql = "SELECT * FROM courses ORDER BY id DESC";
@@ -34,6 +38,7 @@ $result = $conn->query($sql);
                         <a href="delete_course.php?id=<?= $row['id'] ?>" onclick="return confirm('Delete this course?');">Delete</a>
                     </td>
                 </tr>
+                <a href="../Admin System/admin_dashboard.php">Back</a>
             <?php endwhile; ?>
         <?php else: ?>
             <tr><td colspan="4">No courses found.</td></tr>
