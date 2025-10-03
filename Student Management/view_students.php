@@ -1,6 +1,10 @@
 <?php
-require_once "db.php";
 session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../Admin System/login.php');
+    exit();
+}
+require_once "db.php";
 
 $sql = "SELECT s.*, c.course_name, g.grade 
         FROM students s 
@@ -31,6 +35,7 @@ $result = $conn->query($sql);
                 <a href="delete_student.php?id=<?= $row['id'] ?>">Delete</a>
             </td>
         </tr>
+        <a href="../Admin System/admin_dashboard.php">Back</a>
         <?php endwhile; ?>
     </table>
 </body>

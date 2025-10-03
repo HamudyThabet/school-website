@@ -1,6 +1,10 @@
 <?php
-require_once "db.php";
 session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../Admin System/login.php');
+    exit();
+}
+require_once "db.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $student_id = $_POST['student_id'];
@@ -52,6 +56,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="number" name="year_level" min="1" max="6" required><br><br>
 
         <button type="submit">Add</button>
+
+        <a href="view_students.php">Back</a>
     </form>
 </body>
 </html>

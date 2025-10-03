@@ -1,6 +1,10 @@
 <?php
-require_once "db.php";
 session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../Admin System/login.php');
+    exit();
+}
+require_once "db.php";
 
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']); // ensure it's an integer

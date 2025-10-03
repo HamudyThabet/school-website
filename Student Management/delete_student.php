@@ -1,6 +1,10 @@
 <?php
-require_once "db.php";
 session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../Admin System/login.php');
+    exit();
+}
+require_once "db.php";
 
 $student_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $message = ''; // For success/error messages
