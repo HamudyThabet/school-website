@@ -20,7 +20,7 @@ $result = $conn->query($sql);
     <p><a href="add_student.php">Add Student</a> | <p><a href="../Admin System/admin_dashboard.php">Back to Dashboard</a></p>
     <table border="1" cellpadding="10">
         <tr>
-            <th>Student ID</th><th>Name</th><th>Age</th><th>Course</th><th>Year Level</th><th>Grade</th><th>Actions</th>
+            <th>Student ID</th><th>Name</th><th>Age</th><th>Course</th><th>Year Level</th><th>Actions</th>
         </tr>
         <?php while ($row = $result->fetch_assoc()): ?>
         <tr>
