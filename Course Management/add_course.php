@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="course_name" required>
 
         <label>Description:</label>
-        <textarea name="description"></textarea>
+        <textarea name="description" required></textarea>
 
         <button type="submit">Add Course</button>
     </form>
