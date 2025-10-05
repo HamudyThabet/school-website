@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="course_name" value="<?= htmlspecialchars($course['course_name']) ?>" required><br><br>
 
         <label>Description:</label>
-        <textarea name="description"><?= htmlspecialchars($course['description']) ?></textarea><br><br>
+        <textarea name="description" required><?= htmlspecialchars($course['description']) ?></textarea><br><br>
 
         <button type="submit">Update</button>
     </form>

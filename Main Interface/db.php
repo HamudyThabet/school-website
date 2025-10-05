@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 }
 
 function uploadFacultyPhoto($file, $faculty_id) {
-    $target_dir = "../Main Interface/Assets/faculty/";
+    $target_dir = "Assets/faculty";
     if (!file_exists($target_dir)) {
         mkdir($target_dir, 0777, true);
     }
