@@ -34,7 +34,6 @@ $result = $conn->query($sql);
                 <a href="delete_student.php?id=<?= $row['id'] ?>">Delete</a>
             </td>
         </tr>
-        <a href="../Admin System/admin_dashboard.php">Back</a>
         <?php endwhile; ?>
     </table>
 </body>
