@@ -51,3 +51,22 @@ INSERT INTO courses (course_name, description) VALUES
 ('BS Social Work', 'Community service, welfare programs, and counseling.'),
 ('BS Sociology', 'Societal structures, behavior, and institutions.'),
 ('BS Anthropology', 'Study of cultures, archaeology, and human evolution.');
+
+-- Students
+INSERT INTO students (student_id, name, age, course_id, year_level) VALUES
+('2023-001', 'Joseph Joestar', 21, 12, 4),
+('2023-002', 'Jean Pierre Polnareff', 22, 18, 4), 
+('2023-003', 'Leone Abbacchio', 23, 27, 4),
+('2023-004', 'Yoshikage Kira', 23, 33, 4),
+('2024-010', 'Jotaro Kujo', 18, 5, 2), 
+('2024-011', 'Dio Brando', 19, 7, 2), 
+('2024-012', 'Noriaki Kakyoin', 18, 14, 2), 
+('2024-013', 'Guido Mista', 19, 9, 2), 
+('2024-014', 'Bruno Bucciarati', 20, 25, 3), 
+('2024-015', 'Narancia Ghirga', 18, 16, 2),
+('2025-020', 'Giorno Giovanna', 17, 3, 1), 
+('2025-021', 'Jolyne Cujoh', 19, 22, 2), 
+('2025-022', 'Enrico Pucci', 22, 30, 3), 
+('2025-023', 'Johnny Joestar', 18, 41, 1), 
+('2025-024', 'Gyro Zeppeli', 20, 11, 2);
+
