@@ -2,10 +2,7 @@
 require "db.php";
 $courses_result = $conn->query("SELECT * FROM courses");
 
-$sql = "SELECT s.*, c.course_name, g.grade 
-        FROM students s 
-        LEFT JOIN courses c ON s.course_id = c.id 
-        LEFT JOIN grades g ON s.id = g.student_id AND s.course_id = g.course_id";
+$sql = "SELECT * FROM students";
 $result = $conn->query($sql);
 
 if (isset($_POST['add_student'])) {
@@ -43,7 +40,7 @@ include "head.php";
       <th>Student ID</th>
       <th>Name</th>
       <th>Age</th>
-      <th>Course</th>
+      <th>Course ID</th>
       <th>Year Level</th>
     </tr>
     <?php while ($row = $result->fetch_assoc()) { ?>
@@ -52,7 +49,7 @@ include "head.php";
       <td><?= $row['student_id'] ?></td>
       <td><?= $row['name'] ?></td>
       <td><?= $row['age'] ?></td>
-      <td><?= $row['course_name'] ?></td>
+      <td><?= $row['course_id'] ?></td>
       <td><?= $row['year_level'] ?></td>
     </tr>
     <?php } ?>

@@ -6,29 +6,39 @@ if (!isset($_SESSION['user_id'])) {
 }
 require_once "db.php";
 
-if (isset($_GET['id'])) {
-    $id = intval($_GET['id']); // ensure it's an integer
+$course_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-    try {
-        $sql = "DELETE FROM courses WHERE id = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $id);
-
-        if ($stmt->execute()) {
-            header("Location: view_courses.php");
-            exit;
-        } else {
-            echo "An unexpected error occurred while deleting the course.";
-        }
-    } catch (mysqli_sql_exception $e) {
-        // MySQL foreign key constraint error
-        if ($e->getCode() == 1451) {
-            echo "This course cannot be deleted because there are students currently enrolled in it. 
-                  Please remove or transfer the enrolled students before deleting the course.";
-        } else {
-            echo "Database Error: " . $e->getMessage();
-        }
-    }
-} else {
-    echo "Invalid request.";
+if ($course_id <= 0) {
+    echo "<script>
+        alert('Invalid course ID.');
+        window.location.href='view_courses.php';
+    </script>";
+    exit();
 }
+
+try {
+    $sql = "DELETE FROM courses WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $course_id);
+    $stmt->execute();
+
+    // ✅ Success → reload the list page (no white screen)
+    echo "<script>
+        window.location.href='view_courses.php';
+    </script>";
+    exit();
+
+} catch (mysqli_sql_exception $e) {
+    if ($e->getCode() == 1451) {
+        $msg = "Cannot delete this course. Students are still enrolled, drop or transfer them first.";
+    } else {
+        $msg = "Database Error: " . $e->getMessage();
+    }
+
+    echo "<script>
+        alert(" . json_encode($msg) . ");
+        window.location.href='view_courses.php';
+    </script>";
+    exit();
+}
+?>
