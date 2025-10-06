@@ -1,0 +1,47 @@
+-- Database
+CREATE DATABASE IF NOT EXISTS git_school;
+USE git_school;
+
+-- Courses (make this first so Students can reference it)
+CREATE TABLE courses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    course_name VARCHAR(100) NOT NULL,
+    description TEXT
+);
+
+-- Students
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id VARCHAR(20) NOT NULL UNIQUE, -- e.g., "2025-001"
+    name VARCHAR(100) NOT NULL,
+    age INT,
+    course_id INT,
+    year_level INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (course_id) REFERENCES courses(id)
+);
+
+-- Faculty
+CREATE TABLE faculty (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    specialization VARCHAR(100),
+    contact VARCHAR(100),
+    photo_path VARCHAR(255)
+);
+
+-- Users (Admins)
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Contact Messages
+CREATE TABLE contacts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    message TEXT NOT NULL,
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
