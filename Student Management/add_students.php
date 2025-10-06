@@ -130,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" name="name" required>
 
             <label>Age:</label>
-            <input type="number" name="age" required>
+            <input type="number" name="age" min="16" max="100" required>
 
             <label>Course:</label>
             <select name="course_id" required>

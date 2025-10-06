@@ -2,7 +2,9 @@
 require "db.php";
 $courses_result = $conn->query("SELECT * FROM courses");
 
-$sql = "SELECT * FROM students";
+$sql = "SELECT s.*, c.course_name
+        FROM students s
+        LEFT JOIN courses c ON s.course_id = c.id";
 $result = $conn->query($sql);
 
 if (isset($_POST['add_student'])) {
@@ -40,7 +42,7 @@ include "head.php";
       <th>Student ID</th>
       <th>Name</th>
       <th>Age</th>
-      <th>Course ID</th>
+      <th>Course</th>
       <th>Year Level</th>
     </tr>
     <?php while ($row = $result->fetch_assoc()) { ?>
@@ -49,7 +51,7 @@ include "head.php";
       <td><?= $row['student_id'] ?></td>
       <td><?= $row['name'] ?></td>
       <td><?= $row['age'] ?></td>
-      <td><?= $row['course_id'] ?></td>
+      <td><?= $row['course_name'] ?></td>
       <td><?= $row['year_level'] ?></td>
     </tr>
     <?php } ?>
@@ -65,7 +67,7 @@ include "head.php";
     <form method="post" style="display: flex; flex-direction: column; max-width: 500px; gap: 10px; margin: 0 auto;">
   <input type="text" name="student_id" placeholder="Student ID (e.g., 2025-001)" required style="padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
   <input type="text" name="name" placeholder="Full Name" required style="padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
-  <input type="number" name="age" placeholder="Age" required style="padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+  <input type="number" name="age" placeholder="Age" min="16" max="100" required style="padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
 
   <label>Course</label>
   <select name="course_id" required style="padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
@@ -75,7 +77,7 @@ include "head.php";
     <?php } ?>
   </select>
 
-  <input type="number" name="year_level" placeholder="Year Level" required style="padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+  <input type="number" name="year_level" placeholder="Year Level" min="1" max="6" required style="padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
 
   <button type="submit" name="add_student" style="padding: 10px; background-color: #00796b; color: #fff; border: none; border-radius: 5px; font-weight: bold;">Add Student</button>
 </form>

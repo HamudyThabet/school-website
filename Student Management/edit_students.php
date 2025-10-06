@@ -142,7 +142,7 @@ $courses = $conn->query("SELECT id, course_name FROM courses ORDER BY course_nam
             <input type="text" name="name" value="<?= htmlspecialchars($student['name']) ?>" required>
 
             <label>Age:</label>
-            <input type="number" name="age" value="<?= htmlspecialchars($student['age']) ?>" required>
+            <input type="number" name="age" min="16" max="100" value="<?= htmlspecialchars($student['age']) ?>" required>
 
             <label>Course:</label>
             <select name="course_id" required>
