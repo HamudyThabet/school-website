@@ -71,3 +71,15 @@ INSERT INTO students (student_id, name, age, course_id, year_level) VALUES
 ('2025-023', 'Johnny Joestar', 18, 41, 1), 
 ('2025-024', 'Gyro Zeppeli', 20, 11, 2);
 
+-- Faculty
+INSERT INTO faculty (name, specialization, contact, photo_path) VALUES
+('Coach Karltzy', 'Esports Strategist', 'karl@gti.edu.ph', '../Faculty Management/uploads/faculty_1759805288_68e47f683b272.png'),
+('Master Obi-Wan Kenobi', 'Politics', 'kenobi@gti.edu.ph', '../Faculty Management/uploads/faculty_1759805626_68e480ba30df8.jpg'),
+('Engr. Nikola Tesla', 'Electrical Engineer', 'tesla@univ.edu.ph', '../Faculty Management/uploads/faculty_1759805183_68e47effa98d1.jpg'),
+('Officer Cardo Dalisay', 'Criminology', 'dalisay@gti.edu.ph', '../Faculty Management/uploads/faculty_1759805771_68e4814b5f439.jpg'),
+(Prof. Walter White', 'Chemistry', 'white@gti.edu.ph', '../Faculty Management/uploads/faculty_1759809636_68e49064b0873.jpg'),
+('Dr. Albert Einstein', 'Physics', 'einstein@gti.edu.ph', '../Faculty Management/uploads/faculty_1759805107_68e47eb3ec2dd.jpg'),
+('Prof. Kim Atienzay', 'Agriculture', 'kuyakim@gti.edu.ph', '../Faculty Management/uploads/faculty_1759809550_68e4900e52700.jpg'),
+('Dr. Enrico Pucci', 'Philosophy', 'pucci@git.edu.ph', '../Faculty Management/uploads/faculty_1759805005_68e47e4dc7418.jpg'),
+('Prof. P. Diddy', 'Basic Education/Pediatrician', 'diddy@univ.edu.ph', '../Faculty Management/uploads/faculty_1759809935_68e4918f86b98.jpg'),
+('Dr. Johnny', 'Medical Practition', 'sins@gti.edu.ph', '../Faculty Management/uploads/faculty_1759809287_68e48f07860e4.jpg'),
