@@ -5,38 +5,40 @@ $result = $conn->query($sql);
 ?>
 
 <style>
-/* keep your same CSS */
 .video-section {
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh; /* allow growth beyond one screen */
     overflow: hidden;
 }
+
 .video-section video {
-    position: absolute;
+    position: fixed; /* keep video background static while scrolling */
     top: 0; left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     z-index: 0;
 }
+
 .video-overlay {
-    position: absolute;
+    position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
     background: rgba(0,0,0,0.3);
     z-index: 1;
 }
+
 .faculty-container {
     position: relative;
     z-index: 2;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100%;
     gap: 60px;
     flex-wrap: wrap;
+    padding: 120px 20px 80px; /* spacing from top and bottom */
 }
+
 .faculty-card {
     width: 260px;
     height: 380px;
@@ -51,11 +53,13 @@ $result = $conn->query($sql);
     background-position: center;
     color: white;
 }
+
 .faculty-card:hover {
     transform: scale(1.08);
     box-shadow: 0px 15px 25px rgba(0,0,0,0.5);
     z-index: 3;
 }
+
 .faculty-card::before {
     content: "";
     position: absolute;
@@ -64,6 +68,7 @@ $result = $conn->query($sql);
     background: rgba(0,0,0,0.4);
     z-index: 1;
 }
+
 .faculty-card .info {
     position: absolute;
     bottom: 15px;
@@ -73,6 +78,7 @@ $result = $conn->query($sql);
     text-align: center;
     z-index: 2;
 }
+
 .faculty-card h3, 
 .faculty-card p {
     margin: 6px 0;
@@ -80,9 +86,20 @@ $result = $conn->query($sql);
     text-shadow: 2px 2px 4px black;
     font-weight: bold;
 }
+
 .faculty-card:nth-child(3n+1) { border-color: #e74c3c; }
 .faculty-card:nth-child(3n+2) { border-color: #27ae60; }
 .faculty-card:nth-child(3n+3) { border-color: #2980b9; }
+
+footer {
+    position: relative;
+    z-index: 3;
+    background: #111; /* or your preferred color */
+    color: #fff;
+    padding: 25px 0;
+    text-align: center;
+}
+
 </style>
 
 <div class="video-section">
@@ -92,16 +109,16 @@ $result = $conn->query($sql);
     <div class="video-overlay"></div>
 
     <div class="faculty-container">
-    <?php while ($row = $result->fetch_assoc()): ?>
-        <div class="faculty-card" style="background-image: url('<?= htmlspecialchars($row['photo_path']) ?>');">
-            <div class="info">
-                <h3><?= htmlspecialchars($row['name']) ?></h3>
-                <p><?= htmlspecialchars($row['specialization']) ?></p>
-                <p>Contact: <?= htmlspecialchars($row['contact']) ?></p>
+        <?php while ($row = $result->fetch_assoc()): ?>
+            <div class="faculty-card" style="background-image: url('<?= htmlspecialchars($row['photo_path']) ?>');">
+                <div class="info">
+                    <h3><?= htmlspecialchars($row['name']) ?></h3>
+                    <p><?= htmlspecialchars($row['specialization']) ?></p>
+                    <p>Contact: <?= htmlspecialchars($row['contact']) ?></p>
+                </div>
             </div>
-        </div>
-    <?php endwhile; ?>
-</div>
+        <?php endwhile; ?>
+    </div>
 </div>
 
 <?php include "foot.php"; ?>
