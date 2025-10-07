@@ -32,32 +32,7 @@ include "head.php";
   <h1>Welcome, GITizens! Let’s innovate and grow together!</h1>
 </section>
 <section id="courses" style ="background: url('https://images.unsplash.com/photo-1712397943847-e104395a1a8b?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGRhcmslMjBibHVlJTIwYWVzdGhldGljfGVufDB8fDB8fHww') center center / cover no-repeat;">
-<div class="container" style="background: rgba(255, 255, 255, 0.9); padding: 20px; border-radius: 10px;">
-  <div class="section-title">
-      <h2>Student List</h2>
-  </div>
-  <table border="1">
-    <tr>
-      <th>ID</th>
-      <th>Student ID</th>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Course</th>
-      <th>Year Level</th>
-    </tr>
-    <?php while ($row = $result->fetch_assoc()) { ?>
-    <tr>
-      <td><?= $row['id'] ?></td>
-      <td><?= $row['student_id'] ?></td>
-      <td><?= $row['name'] ?></td>
-      <td><?= $row['age'] ?></td>
-      <td><?= $row['course_name'] ?></td>
-      <td><?= $row['year_level'] ?></td>
-    </tr>
-    <?php } ?>
-  </table><br><br>
-</div>
-    </section>
+
 <section class="contact-form" style="margin-top: 0; display: flex; flex-direction: column; align-items: center; gap: 20px; background: url('https://wallpapers.com/images/hd/aesthetic-desktop-city-a56svyv07wefmq5y.jpg') center center / cover no-repeat;" >
   <!-- Contact Section Wrapper -->
   <section id="faq" style="padding: 60px 20px; max-width: 900px; margin: 0 auto; background: rgba(255, 255, 255, 0.9); border-radius: 10px;">
