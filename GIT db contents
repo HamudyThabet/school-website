@@ -50,7 +50,8 @@ INSERT INTO courses (course_name, description) VALUES
 ('BS Physical Education', 'Human movement, sports science, and coaching.'),
 ('BS Social Work', 'Community service, welfare programs, and counseling.'),
 ('BS Sociology', 'Societal structures, behavior, and institutions.'),
-('BS Anthropology', 'Study of cultures, archaeology, and human evolution.');
+('BS Anthropology', 'Study of cultures, archaeology, and human evolution.'),
+('BS Esports', 'Esports-event organizing, marketing, partnerships, broadcasting, social media, brand development, project coordination, sales, etc.');
 
 -- Students
 INSERT INTO students (student_id, name, age, course_id, year_level) VALUES
